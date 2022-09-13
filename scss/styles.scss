@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    // border: 1px solid black;
+}
+
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+.container {
+    @include flex(row);
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+    background-image: url("../images/bg-intro-desktop.png");
+    background-color: hsl(0, 100%, 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 16px;
+}
+
+.text-section {
+    @include flex(column);
+    width: 35%;
+    color: white;
+    gap: 2rem;
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.form-section {
+    @include flex(column);
+    width: 34%;
+    gap: 2rem;
+    .cta {
+        @include flex(row);
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        background-color: hsl(248, 32%, 49%);
+        padding: 1rem 0;
+        border-radius: 10px;
+        font-weight: 400;
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.form {
+    @include flex(column);
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    gap: 1rem;
+    input[type=password],
+    input[type=text],
+    input[type=email] {
+        width: 100%;
+        height: 3rem;
+        border-radius: 5px;
+        outline: none;
+        border: 2px solid hsl(246, 25%, 77%);
+        padding: 0 1rem;
+        font-weight: 600;
+        &.error {
+            border-color: hsl(0, 100%, 74%);
+        }
+        &:active,
+        &:focus {
+            border-color: hsl(249, 10%, 26%);
+        }
+    }
+    p {
+        font-size: 12px;
+        color: hsl(246, 25%, 77%);
+        font-weight: 600;
+        a {
+            text-decoration: none;
+            color: hsl(0, 100%, 74%);
+        }
+    }
+}
+
+.input-field {
+    @include flex(column);
+    width: 100%;
+}
+
+p.error-text {
+    width: 100%;
+    font-style: italic;
+    text-align: right;
+    font-size: 10px;
+    padding-right: 2%;
+    color: hsl(0, 100%, 74%);
+}
+
+#sign-up-btn {
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: white;
+    background-color: hsl(154, 59%, 51%);
+    font-weight: 600;
+    &:hover,
+    &:active {
+        background-color: hsl(154, 40%, 62%);
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        @include flex(column);
+        height: fit-content;
+        padding: 10% 0;
+        gap: 4rem;
+    }
+    .text-section {
+        width: 80%;
+        text-align: center;
+    }
+    .form-section {
+        width: 80%;
+        .cta {
+            padding: 1rem 3rem;
+        }
+    }
+}
